@@ -1,7 +1,7 @@
 {
   "name": "react-session-hook",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "index.js",
   "license": "MIT",
   "description": "ReactJS hook to manage session state and storage",
   "typings": "index.d.js",
