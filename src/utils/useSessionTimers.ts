@@ -30,6 +30,7 @@ export default <TProfile>(session: UseSession<TProfile>) => {
   }
 
   useInterval(() => {
-    setSession(refreshFn!(session));
+    const refreshed = Promise.resolve(refreshFn!(session));
+    refreshed.then(_session => setSession(_session));
   }, refreshExpiresIn);
 };
