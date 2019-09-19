@@ -2,7 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const react_1 = require("react");
 function useInterval(callback, delay) {
-    const savedCallback = react_1.useRef(callback);
+    // @ts-ignore
+    const savedCallback = react_1.useRef();
     // Remember the latest callback.
     react_1.useEffect(() => {
         savedCallback.current = callback;
@@ -12,10 +13,11 @@ function useInterval(callback, delay) {
         function tick() {
             savedCallback.current();
         }
+        let id;
         if (delay !== null) {
-            const id = setInterval(tick, delay);
-            return () => clearInterval(id);
+            id = setInterval(tick, delay);
         }
+        return () => clearInterval(id);
     }, [delay]);
 }
 exports.default = useInterval;

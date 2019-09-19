@@ -16,14 +16,14 @@ export default <TProfile>(session: UseSession<TProfile>) => {
    * Remove Session Timer
    */
   const sessionExpiresIn =
-    expiration && isAuthenticated ? expiration.valueOf() - Date.now() : null;
+    expiration && isAuthenticated ? expiration.valueOf() - Date.now() : Number.MAX_SAFE_INTEGER;
 
   useInterval(() => removeSession(), sessionExpiresIn);
 
   /***
    * RefreshFn timer
    */
-  let refreshExpiresIn: number | null = null;
+  let refreshExpiresIn: number | null = Number.MAX_SAFE_INTEGER;
 
   if (refreshFn && refreshInterval) {
     refreshExpiresIn = Math.min(refreshInterval, sessionExpiresIn || Infinity);
@@ -31,6 +31,6 @@ export default <TProfile>(session: UseSession<TProfile>) => {
 
   useInterval(() => {
     const refreshed = Promise.resolve(refreshFn!(session));
-    refreshed.then(_session => setSession(_session));
+    refreshed.then(s => setSession(s));
   }, refreshExpiresIn);
 };

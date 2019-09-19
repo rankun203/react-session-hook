@@ -9,18 +9,18 @@ exports.default = (session) => {
     /***
      * Remove Session Timer
      */
-    const sessionExpiresIn = expiration && isAuthenticated ? expiration.valueOf() - Date.now() : null;
+    const sessionExpiresIn = expiration && isAuthenticated ? expiration.valueOf() - Date.now() : Number.MAX_SAFE_INTEGER;
     useInterval_1.default(() => removeSession(), sessionExpiresIn);
     /***
      * RefreshFn timer
      */
-    let refreshExpiresIn = null;
+    let refreshExpiresIn = Number.MAX_SAFE_INTEGER;
     if (refreshFn && refreshInterval) {
         refreshExpiresIn = Math.min(refreshInterval, sessionExpiresIn || Infinity);
     }
     useInterval_1.default(() => {
         const refreshed = Promise.resolve(refreshFn(session));
-        refreshed.then(_session => setSession(_session));
+        refreshed.then(s => setSession(s));
     }, refreshExpiresIn);
 };
 //# sourceMappingURL=useSessionTimers.js.map

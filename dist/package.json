@@ -1,7 +1,7 @@
 {
   "name": "react-session-hook",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "dist/index.js",
   "license": "MIT",
   "description": "ReactJS hook to manage session state and storage",
   "typings": "index.d.js",
@@ -50,6 +50,7 @@
   },
   "dependencies": {
     "jwt-decode": "^2.2.0",
+    "react-session-hook": "rankun203/react-session-hook",
     "universal-cookie": "^3.0.7"
   },
   "release": {
