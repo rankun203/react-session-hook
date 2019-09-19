@@ -4954,6 +4954,13 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.8.1.tgz#a80141e246eb894824fb4f2901c0c50ef31d4cdb"
   integrity sha512-ioMCzVDWvCvKD8eeT+iukyWrBGrA3DiFYkXfBsVYIRdaREZuBjENG+KjrikavCLasozqRWTwFUagU/O4vPpRMA==
 
+react-session-hook@rankun203/react-session-hook:
+  version "1.0.0"
+  resolved "https://codeload.github.com/rankun203/react-session-hook/tar.gz/3878b5f973d2bb8da047a984c76bd4c2e0f4c09f"
+  dependencies:
+    jwt-decode "^2.2.0"
+    universal-cookie "^3.0.7"
+
 react-testing-library@^6.0.0:
   version "6.0.0"
   resolved "https://registry.yarnpkg.com/react-testing-library/-/react-testing-library-6.0.0.tgz#81edfcfae8a795525f48685be9bf561df45bb35d"
