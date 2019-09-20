@@ -80,4 +80,4 @@ typings/
 .dynamodb/
 
 # Typescript outdir
-# dist
+dist
