@@ -19,8 +19,7 @@ exports.default = (session) => {
         refreshExpiresIn = Math.min(refreshInterval, sessionExpiresIn || Infinity);
     }
     useInterval_1.default(() => {
-        const refreshed = Promise.resolve(refreshFn(session));
-        refreshed.then(s => setSession(s));
+        refreshFn(session, setSession);
     }, refreshExpiresIn);
 };
 //# sourceMappingURL=useSessionTimers.js.map
